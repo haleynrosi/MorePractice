@@ -23,10 +23,14 @@ function simplecalculator(a,b,o){
     let c = "not a thing my guy";
     console.log(c);
    }
+
 }
+
+//
 
 simplecalculator(4,5,'+')
 simplecalculator(2,3,'*')
+
 
 
 
