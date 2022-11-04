@@ -40,13 +40,14 @@
 
 //ARRAY Practice
 
-let arrayOne = ["Haley", "Fisher", "JavaScript"];
-let arrayTwo = [10, 28, 2022];
+let a = [4,2,6,0,8];
+let b = [9,4,3,5,12,33,4];
+let c = [];
 
-function introduceYourself(arrayOne[], arrayTwo[]) {
-   
+function mergeArrays (){
+    for(i=0; i<){
 
-
+    }
 }
 
 
