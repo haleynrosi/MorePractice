@@ -125,38 +125,53 @@
 
 
 // //Exercise: Learning About Conditionals in Canvas
+//This function needs to return a message when
+//a specific day is passed into it whether we can
+//go to the movies with our friends that day or not
 
+//we know we can go if the day of the week in my friends
+//schedule is TRUE and if the $ in my money schedule is
+//over $100
 
 
 const myFriendsSchedule = {
-    "monday": true,
-    "tuesday": false,
-    "wednesday": true,
-    "thursday": false,
-    "friday": false,
-    "saturday": true,
-    "sunday": false
+    monday: true,
+    tuesday: false,
+    wednesday: true,
+    thursday: false,
+    friday: false,
+    saturday: true,
+    sunday: false
 }
 
 const myMoneySchedule = {
-    "monday": 150,
-    "tuesday": 120,
-    "wednesday": 110,
-    "thursday": 75,
-    "friday": 150,
-    "saturday": 120,
-    "sunday": 80
+    monday: 150,
+    tuesday: 120,
+    wednesday: 110,
+    thursday: 75,
+    friday: 150,
+    saturday: 120,
+    sunday: 80
 }
+
 
 
 
 function canWeGoToTheMovies(day) {
-    if (){
-
+    if (myFriendsSchedule.hasOwnProperty(day) == false) {
+         console.log("Doesn't jive!")
+         return; 
+    }
+    if(myFriendsSchedule[day] == true && myMoneySchedule[day]>= 100) {
+        console.log("On " + day + " ? Yes, let's go to the movies!")
+    } else if (myFriendsSchedule[day] == true || myMoneySchedule[day] >= 100){
+        console.log("On " + day + "? One of us can go to the movies!")
+    } else {
+        console.log("On " + day + "? We can't go to the movies!" )
     }
    
 }
 
-canWeGoToTheMovies();
+canWeGoToTheMovies("thursday");
 
 

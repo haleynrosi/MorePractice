@@ -1,0 +1,80 @@
+.container {
+    width: 500px;
+    height: 450px; 
+    background-color: black;
+    border-color: black;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+
+.calcContainer {
+    display: flex;
+    flex: column;
+    width: 99%;
+    height: 20%;
+    background-color: grey;
+    align-items: center;
+    border-style: solid;
+    border-bottom: 0px;
+    border-radius: 15px;
+
+}
+
+.displayNum {
+    flex: 25%;
+    text-align: right;
+    margin-right: 35px;
+    
+
+}
+
+.buttonContainer {
+    display: flex;
+    flex-flow: row wrap;
+    width: 99%;
+    height: 79%;
+    border-radius: 15px;
+    border-style: solid;
+    text-align: center;
+    background-color: black;
+}
+
+.opbutton {
+    flex: 20%;
+    background-color: orange;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+.calcbutton {
+    flex: 20%;
+    background-color: darkgray;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+
+.numbutton {
+    flex: 20%;
+    background-color: lightgray;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+.zerobutton {
+    flex: 45%;
+    background-color: lightgray;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    
+    
+}
+
