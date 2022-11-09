@@ -26,3 +26,25 @@ function characterCount (string, character){
 characterCount("Athena", "A");
 
 
+//Given a sentence replace a specific word with another word.
+//example replaceWord(inputsentence,replaceword)
+//"dog barks", "Dog", "Cat" => Cat barks
+
+//this function needs to take a sentence and replace a specific word with another word -
+//the word will be submitted with the replacement word
+
+function wordReplacement (sentenceString, toBeReplaced , replaceWord) {
+    let stringArray= sentenceString.split(" ");
+    
+
+    for (let i=0; i<stringArray.length; i++) {
+        if (stringArray[i].toLowerCase() == toBeReplaced.toLowerCase()) {
+            stringArray[i] == replaceWord;
+        }
+    }
+     sentenceString = stringArray.join(" ");
+     console.log(sentenceString);
+}
+
+
+wordReplacement("Hey there delilah", "delilah", "marcus")
