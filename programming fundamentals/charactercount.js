@@ -36,7 +36,6 @@ characterCount("Athena", "A");
 function wordReplacement (sentenceString, toBeReplaced , replaceWord) {
     let stringArray= sentenceString.split(" ");
     
-
     for (let i=0; i<stringArray.length; i++) {
         if (stringArray[i].toLowerCase() == toBeReplaced.toLowerCase()) {
             stringArray[i] == replaceWord;
@@ -46,5 +45,5 @@ function wordReplacement (sentenceString, toBeReplaced , replaceWord) {
      console.log(sentenceString);
 }
 
-
 wordReplacement("Hey there delilah", "delilah", "marcus")
+
