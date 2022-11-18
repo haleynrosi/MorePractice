@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1 id="heading">Navigation</h1>
+        <ul id="nav-list">
+            <li class="nav-link">Home</li>
+            <li class="nav-link">Store</li>
+            <li class="nav-link">Contact</li>
+        </ul>
+        <div id="root">
+            <button onclick="alert('clicked')">Click Me!</button>
+        </div>
+    </body>
+    <script>
+         const headerElement = document.createElement('h1');
+         const listElement = document.createElement('ul');
+         const listItemOne = document.createElement('li');
+         const listItemTwo = document.createElement('li');
+         const listItemThree = document.createElement('li');
+         const root = document.querySelector('#root');
+         root.append(headerElement, listElement);
+         listElement.append(listItemOne, listItemTwo, listItemThree);
+         headerElement.innerText = "New List Baby";
+         listItemOne.innerText = "Numba 1";
+         listItemTwo.innerText = "Numba 2";
+         listItemThree.innerText = "Numba 3";
+         headerElement.id = "heading";
+         listElement.id = "nav-list";
+         listElement.childNodes.forEach( item => {
+            item.className = "nav-link";
+         })
+    </script>
+</html>

@@ -1,5 +1,24 @@
 <head>
     <link rel="stylesheet" href="css/flexbox.css">
+    <script >
+        let imputText = '';
+        let number1 = 0;
+        let number2 = 0;
+        let operator = '';
+        let answer = 0;
+        let displayText = '';
+        function calculatorFunction (){
+            document.addEventListener('click', event => {
+                let buttonClickedText = event.target.innerText;
+              if(buttonClickedText == 'C'){
+                resetCalculator();
+                return;      
+              }
+              displayText += buttonClickedText;
+              document.getElementById('inputValues')
+            })
+        };
+    </script>
 </head>
 
 <body>
@@ -9,25 +28,25 @@
             <div class="displayNum">1255</div>
         </div>
             <div class="buttonContainer">
-                <div class="calcButton">C</div>
-                <div class="calcButton">+/-</div>
-                <div class="calcButton">%</div>
-                <div class="opButton">/</div>
-                <div class="numButton">7</div>
-                <div class="numButton">8</div>
-                <div class="numButton">9</div>
-                <div class="opButton">X</div>
-                <div class="numButton">4</div>
-                <div class="numButton">5</div>
-                <div class="numButton">6</div>
-                <div class="opButton">-</div>
-                <div class="numButton">1</div>
-                <div class="numButton">2</div>
-                <div class="numButton">3</div>
-                <div class="opButton">+</div>
-                <div class="zeroButton">0</div>
-                <div class="numButton">.</div>
-                <div class="opButton">=</div>
+                <button class="calcButton">C</button>
+                <button class="calcButton">+/-</button>
+                <button class="calcButton">%</button>
+                <button class="opButton">/</button>
+                <button class="numButton">7</button>
+                <button class="numButton">8</button>
+                <button class="numButton">9</button>
+                <button class="opButton">*</button>
+                <button class="numButton">4</button>
+                <button class="numButton">5</button>
+                <button class="numButton">6</button>
+                <button class="opButton">-</button>
+                <button class="numButton">1</button>
+                <button class="numButton">2</button>
+                <button class="numButton">3</button>
+                <button class="opButton">+</button>
+                <button class="zeroButton">0</button>
+                <button class="numButton">.</button>
+                <button class="opButton">=</button>
             </div>
     </div>
 </body>

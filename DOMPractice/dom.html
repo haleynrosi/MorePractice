@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script>
+            function addMore() {
+                const parentDiv = document.getElementById('parentDiv');
+                const newChild = document.createElement('div'); 
+                const newFruit = document.getElementById('fruitname').value;
+                newChild.innerText = newFruit; 
+                parentDiv.append(newChild);
+
+            };
+        </script>
+    </head>
+    <body>
+            <div id="parentDiv">
+                <div>Apple</div>
+                <div>Orange</div>
+            </div>
+            <input type="text" id="fruitname"> 
+            <div><button onclick="addMore()">Add More</button></div>
+        </div>
+    </body>
+</html>
