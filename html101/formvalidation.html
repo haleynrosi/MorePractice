@@ -1,0 +1,36 @@
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+</style>
+<body>
+<form>
+    <label for="bookName">Book Name:</label>
+    <input type="text" id="bookName" name="bookName" maxlength="50" required/>
+    <label for="isbnName">ISBN:</label>
+    <input type="text" id="isbnName" name="isbnName" maxlength="13" required/>
+    <label for="authorName">Author Name:</label>
+    <input type="text" id="authorName" name="authorName" required/>
+    <label for="yearPublished">Year Published:</label>
+    <input type="text" id="yearPublished" name="yearPublished" required/>
+    <label for="bookRating">Rating:</label>
+    <select name="rating" id="bookRating">
+        <option value="allAges">All ages</option>
+        <option value="sixPlus">6+</option>
+        <option value="thirteenPlus">13+</option>
+    </select>
+    <!-- <input type="submit" id="bookRating" name="bookRating" value="submit"required/> -->
+    <label for="mediaType">Media Type:</label>
+    <label for="mediaType">Kindle</label>
+    <input type="radio" id="mediaType" name="mediaType" required/>
+    <label for="mediaType">Hardcover</label>
+    <input type="radio" id="mediaType" name="mediaType" required/>
+    <label for="mediaType">CD</label>
+    <input type="radio" id="mediaType" name="mediaType" required/>
+    <label for="bookPrice">Price:</label>
+    <input type="text" id="bookPrice" name="bookPrice" maxlength= "3" pattern = "$[0-9-0-9]"required/>
+</form>
+</body>
