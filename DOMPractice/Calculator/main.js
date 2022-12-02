@@ -9,37 +9,76 @@
 
 
 
-const numberKeys = document.querySelectorAll('#numberKey');
-const calcDisplay = document.getElementById('calculatorDisplay');
-const clearCalc = document.getElementById('clearKey');
-const operatorKey = document.querySelectorAll('#operatorKey'); 
-
-
+let numberKeys = document.querySelectorAll('#numberKey');
+let calcDisplay = document.getElementById('calculatorDisplay');
+let clearCalc = document.getElementById('clearKey');
+let operatorKeys = document.querySelectorAll('#operatorKey'); 
+let equalsKey = document.getElementById('equalsKey').value;
+let resultDisplay =  document.getElementById('result');
 let calcArray = []; 
-let calcNum = 0; 
+let calcNum = 0;
+let calcString = "";
 
-numberKeys.forEach((b) => {
-    b.addEventListener('click', function(){
-        calcDisplay.innerHTML = b.innerHTML;
-        calcArray.push(b.value);
-        // console.log(calcArray)
-        calcArray.map(Number); 
-            })
-        })
+function displayFunction(value) {
+    calcDisplay.value += value;
+    calcDisplay.innerHTML = value;
+    calcArray.push(value);
+    // console.log(calcArray);
+}
 
-operatorKey.forEach((o) => {
-    o.addEventListener('click', function(){
-        calcDisplay.innerHTML = ` ${o.innerHTML}` ;
+function calculateFunction() {
+    calcString = calcArray.join('');
+    // console.log(calcString)
+    // console.log(eval(calcString))
+    resultDisplay.innerText = eval(calcString);
+}
 
-            } )
-        })
+function clearFunction() {
+    let emptyString = "";
+    let emptyArray = [];
+    calcArray = emptyArray;
+    calcString = emptyString;
+    resultDisplay.innerText = 'Calculating...';
+    calcDisplay.innerHTML = 0;
+
+}
+
+
+
+
+// function calculateFunction(){
+//     let result = document.getElementById('result').value;
+//     let num = eval(result);
+//     document.getElementById('result').value = num;
+//     console.log(typeof(num));
+// }
+
+
+// console.log(numberKeys.values);
+
+// numberKeys.forEach((b) => {
+//     b.addEventListener('click', function(){
+//         calcDisplay.innerHTML = b.innerHTML;
+//         calcArray.push(b.value);
+//         //console.log(calcArray)
+//         calcArray.map(Number); 
+//             })
+//         })
+
+// operatorKey.forEach((o) => {
+//     o.addEventListener('click', function(){
+//         calcDisplay.innerHTML = ` ${o.innerHTML}` ;
+
+//             } )
+//         })
         
 
-clearCalc.addEventListener('click', (c) => {
-    calcDisplay.innerHTML = "";
-    calcArray = []; 
-    // console.log(calcArray);
-})
+
+// clearCalc.addEventListener('click', (c) => {
+//     calcDisplay.innerHTML = "";
+//     calcArray = []; 
+//     // console.log(calcArray);
+// })
 
 
 

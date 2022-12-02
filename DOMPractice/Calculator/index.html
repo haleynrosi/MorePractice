@@ -17,26 +17,27 @@
         <div id="calculatorDisplay">
             0
         </div>
+        <p id="result">Calculating...</p>
         <div>
-            <button value="" id="clearKey">C</button>
-            <button value="%" id="operatorKey">%</button>
-            <button value="/" id="operatorKey">/</button>
-            <button value="*" id="operatorKey">*</button>
-            <button value="-" id="operatorKey">-</button>
-            <button value="+" id="operatorKey">+</button>
-            <button value="." id="operatorKey">.</button>
-            <button value="=" id="equalsKey">=</button>
-            <button value="1" id="numberKey">1</button>
-            <button value="2" id="numberKey">2</button>
-            <button value="3" id="numberKey">3</button>
-            <button value="4" id="numberKey">4</button>
-            <button value="5" id="numberKey">5</button>
-            <button value="6" id="numberKey">6</button>
-            <button value="7" id="numberKey">7</button>
-            <button value="8" id="numberKey">8</button>
-            <button value="9" id="numberKey">9</button>
-            <button value="0" id="numberKey">0</button>
+            <button id="clearKey" onclick="clearFunction()">C</button>
+            <button value="/" id="operatorKey" onclick="displayFunction('/')">/</button>
+            <button value="*" id="operatorKey" onclick="displayFunction('*')">*</button>
+            <button value="-" id="operatorKey" onclick="displayFunction('-')">-</button>
+            <button value="+" id="operatorKey" onclick="displayFunction('+')">+</button>
+            <button value="." id="operatorKey" onclick="displayFunction('.')">.</button>
+            <!-- <button value="=" id="equalsKey" onclick="displayFunction('=')">=</button> -->
+            <button value="1" id="numberKey" onclick="displayFunction('1')">1</button>
+            <button value="2" id="numberKey" onclick="displayFunction('2')">2</button>
+            <button value="3" id="numberKey" onclick="displayFunction('3')">3</button>
+            <button value="4" id="numberKey" onclick="displayFunction('4')">4</button>
+            <button value="5" id="numberKey" onclick="displayFunction('5')">5</button>
+            <button value="6" id="numberKey" onclick="displayFunction('6')">6</button>
+            <button value="7" id="numberKey" onclick="displayFunction('7')">7</button>
+            <button value="8" id="numberKey" onclick="displayFunction('8')">8</button>
+            <button value="9" id="numberKey" onclick="displayFunction('9')">9</button>
+            <button value="0" id="numberKey" onclick="displayFunction('0')">0</button>
         </div>
+        <button id= "equalsKey" value="=" onclick="calculateFunction()">=</button>
         <script src="main.js"></script>
 </body>
 
