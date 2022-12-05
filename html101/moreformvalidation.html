@@ -1,64 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
     <style>
-        .formStyle {
-            display: flex;
-            flex-direction: column;
-        }
     </style>
-    </head>
-    <body>
-        <div>
-        <form class="formStyle">
-            <label for="studentName"> Student Name:
-                <input id="studentName" type="text" name="studentName" required>
+</head>
+
+<body>
+    <div>
+        <form>
+            Student Name: <input type="text" id="studentName" name="studentName"> <br>
+            Student Age: <input type="number" min="15"> <br>
+            Password: <input type="password" required> <br>
+            Student Gender:
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female
+            <input type="radio" name="gender">Non Binary<br>
+            Select Course:
+            <select>
+                <option>Backend</option>
+                <option>Frontend</option>
+            </select><br>
             </label>
-            <label for="studentEmail"> Student Email:
-                <input id="studentEmail" type="email" name="studentEmail" required>
-            </label>
-            <label for="studentAge"> Student Age:
-                <input id="studentAge" type="number" name="studentAge" max-length="2" required>
-            </label>
-            <label for="studentPw"> Student Password:
-                <input id="studentPw" type="password" name="studentPw" required>
-            </label>
-            <label for="studentGender"> Student Gender:
-                <br>
-                <label> Female
-                    <input id="studentGender" type="radio" name="studentGender" required>
-                </label>
-                <br>
-                <label> Male
-                    <input id="studentGender" type="radio" name="studentGender" required>
-                </label>
-                <br>
-                <label> Non Binary
-                    <input id="studentGender" type="radio" name="studentGender" required>
-                </label>   
-            </label>
-            <label for="studentCourse"> Select Course:
-                <br>
-                <label> Fullstack Web Development
-                    <input id="studentCourse" type="radio" name="studentCourse" required>
-                </label>
-                <br>
-                <label> Frontend Web Development
-                    <input id="studentCourse" type="radio" name="studentCourse" required>
-                </label>
-                <br>
-                <label> Cyber Security
-                    <input id="studentCourse" type="radio" name="studentCourse" required>
-                </label>
-            </label>
+            Email: <input type="email" id="email" required>
+            <button type="submit" id="addStudent">Submit</button>
         </form>
     </div>
-        <script src="" async defer></script>
-    </body>
+    <script>
+        const studentName = document.getElementById('studentName');
+        const email = document.getElementById('email');
+        const submitButton = document.getElementById('addStudent');
+        submitButton.addEventListener('click', () => {
+            const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(gmail.com|yahoo.com)$/
+            if (!validRegex.test(email.value)) {
+                email.setCustomValidity('Please enter a valid email format');
+            } else {
+                email.setCustomValidity('');
+            }
+            if (studentName.value == '') {
+                studentName.setCustomValidity('Please enter a student name');
+            } else if (studentName.value.length < 10) {
+                studentName.setCustomValidity('Student name is minimum 10 characters');
+            } else if (studentName.value != '') {
+                studentName.setCustomValidity('');
+            }
+
+        })
+    </script>
+</body>
+
 </html>

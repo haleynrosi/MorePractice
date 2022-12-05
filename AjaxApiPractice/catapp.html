@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+
+        function renderImage(imageUrl, catDescrip) {
+            const imageTag = document.getElementById('catImg');
+            imageTag.src = imageUrl;
+            const descDiv = document.getElementById('descripDiv');
+            descDiv.innerText = catDescrip;
+        }
+
+        function callApiViaFetch(){
+            fetch("https://api.thecatapi.com/v1/breeds")
+            .then((r)=> r.json())
+            .then((response)=>{
+                showData(response)
+            })
+        }
+
+        function showData(jsonFormatReponse){
+            const catListContainerDiv = document.getElementById('catListContainer');
+            for (let i = 0; i < jsonFormatReponse.length; i++) {
+                        const catInfo = jsonFormatReponse[i];
+                        const catRow = document.createElement('div');
+                        catRow.className = "catRowStyle";
+                        const catNameColumn = document.createElement('span')
+                        catNameColumn.innerText = catInfo.name
+                        catRow.appendChild(catNameColumn);
+
+                        const catTempColumn = document.createElement('span')
+                        catTempColumn.innerText = catInfo.temperament;
+                        catRow.appendChild(catTempColumn);
+
+                        const catImgColumn = document.createElement('span')
+                        const imgHref = document.createElement('a');
+                        imgHref.innerText = "Image";
+                        imgHref.href = "#"
+                        imgHref.addEventListener('click', () => {
+                            renderImage(catInfo.image.url, catInfo.description);
+                        })
+                        catImgColumn.appendChild(imgHref);
+                        catRow.appendChild(catImgColumn);
+
+                        catListContainerDiv.appendChild(catRow);
+                    }
+        }
+
+        function callApi() {
+            let apiRequest = new XMLHttpRequest();
+            apiRequest.onreadystatechange = function () {
+                if (apiRequest.readyState == 4) {
+                    console.log(apiRequest.responseText) //apiRequest.responseText is in a JSON format - parse just makes it more readable
+                    const jsonFormatReponse = JSON.parse(apiRequest.responseText);//parse - takes plain text and converts to a JSON format/more readable/better for the browser
+                    const catListContainerDiv = document.getElementById('catListContainer');
+                    showData(jsonFormatReponse);
+                }
+            }
+            apiRequest.open("GET", "https://api.thecatapi.com/v1/breeds")
+            apiRequest.send(); //this actually makes the call to the API - this is like the enter button
+        }
+    </script>
+    <style>
+        .parentContainerStyle {
+            display: flex;
+            flex-direction: row;
+            width: 900px;
+            height: 600px;
+            /* background-color: goldenrod; */
+        }
+
+        .catListContainerStyle {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* background-color: palevioletred; */
+        }
+
+        .catImageContainerStyle {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            /* background-color: brown; */
+        }
+
+        .catRowStyle {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="callApi()">CallApi</button>
+    <div id="parentContainer" class="parentContainerStyle">
+        <div id="catListContainer" class="catListContainerStyle"></div>
+        <div id="catImageContainer" class="catImageContainerStyle">
+            <img id="catImg" width="200px" height="200px" />
+            <div id="descripDiv"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--NOTES:
+both the callApi and callApiViaFetch function do the same thing with just different ways
+both use the showData() and renderImage()-->
