@@ -1,0 +1,92 @@
+<!--build an html that will list the contents of the api (name, conference, and city) in a grid format, using the axios library to make the call-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .parentContainerStyle{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .apiDivStyle {
+                display: flex;
+                flex-direction: row;
+                border-style: solid;
+                border-color: white;
+            
+            
+            }
+
+            .cityStyle {
+                background-color: aqua;
+                
+            }
+
+            .conferenceStyle {
+                background-color: darkcyan;
+               
+            }
+        
+
+            .nameStyle {
+                background-color: lightseagreen;
+              
+            }
+            
+        </style>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+        <script>
+            function callApiViaAxios(){
+                axios.get('https://www.balldontlie.io/api/v1/teams')
+                .then(response =>{
+                    console.log(response.data)
+                    showApiData(response.data.data);
+                })
+             }
+
+            function showApiData(apiResponse){
+                const apiContainer = document.getElementById('parentContainerDiv');
+                for(let i in apiResponse){
+                    const apiData = apiResponse[i];
+                    const apiDiv = document.createElement('div');
+                    apiDiv.className = "apiDivStyle";
+                    const nameRow = document.createElement('span');
+                    nameRow.className = "nameStyle";
+                    nameRow.innerHTML = apiData.name;
+                    apiDiv.appendChild(nameRow);
+
+                    const conferenceRow = document.createElement('span');
+                    conferenceRow.className = "conferenceStyle";
+                    conferenceRow.innerHTML = apiData.conference;
+                    apiDiv.appendChild(conferenceRow);
+
+                    const cityRow = document.createElement('span');
+                    cityRow.className = "cityStyle";
+                    cityRow.innerHTML = apiData.city;
+                    apiDiv.appendChild(cityRow);
+
+                    apiContainer.appendChild(apiDiv);
+                }
+                
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <button id="apiButton" onclick="callApiViaAxios()">API Button</button>
+        <div id="parentContainerDiv" class="parentContainerStyle">
+        </div>
+    </body>
+</html>

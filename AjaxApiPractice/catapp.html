@@ -7,6 +7,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!--javascript library for calling apis-->
     <script>
 
         function renderImage(imageUrl, catDescrip) {
@@ -14,6 +15,13 @@
             imageTag.src = imageUrl;
             const descDiv = document.getElementById('descripDiv');
             descDiv.innerText = catDescrip;
+        }
+
+        function callApiViaAxios(){
+            axios.get('https://api.thecatapi.com/v1/breeds')
+            .then(response =>{
+                showData(response.data); //you would use .data for the axios library to get the data in a JSON format. similar to how you use .json with fetch except you cant use that with axios
+            })
         }
 
         function callApiViaFetch(){
@@ -98,7 +106,7 @@
 </head>
 
 <body>
-    <button onclick="callApi()">CallApi</button>
+    <button onclick="callApiViaAxios()">CallApi</button>
     <div id="parentContainer" class="parentContainerStyle">
         <div id="catListContainer" class="catListContainerStyle"></div>
         <div id="catImageContainer" class="catImageContainerStyle">

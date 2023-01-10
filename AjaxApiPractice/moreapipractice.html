@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style></style>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            //  function callApiViaAxios(){
+            //     axios.get('https://api.weather.gov/points/32.8474,-96.9579')
+            //     .then(response =>{
+            //         showData();
+            //     })
+            //  }
+
+                // let latitudeBox = document.getElementById('latitudeInput').value;
+                // let longitudeBox = document.getElementById('longitudeInput').value;
+
+             function callApi(latitude, longitude){
+                latitude = document.getElementById('latitudeInput').value;
+                longitude = document.getElementById('longitudeInput').value;
+                axios.get('https://api.weather.gov/points/' + latitude + "," + longitude)
+                .then(response => {
+                    console.log(response.data);
+                    showData(response); 
+                })
+             }
+
+             function showData(response){
+                let weatherForecast = response.properties?.forecast;
+                console.log(weatherForecast)
+        
+             }
+
+            //33.4714827
+            //-111.9884314
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <label for="longitudeInput">Longitude</label>
+                <input id="longitudeInput" type="text">
+            </div>
+            <div>
+                <label for="latitudeInput">Latitude</label>
+                <input id="latitudeInput" type="text">
+            </div>
+        </div>
+        <button onclick="callApi()">Api is just a click away!</button>
+        <input id="forecastOutput" type="text">
+        <script></script>
+    </body>
+</html>
