@@ -39,3 +39,7 @@ function newArray (firstArray){
 newArray([-2, -3, -5, 1, 2, 4]); 
 
 
+//Given an array of numbers reverse every k consecutive 
+//numbersinput array = [3,4,2,12,40,2,4]
+//k = 3 output = [2,4,3,2,40,12,4]
+
