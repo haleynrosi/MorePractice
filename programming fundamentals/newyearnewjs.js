@@ -43,3 +43,24 @@ newArray([-2, -3, -5, 1, 2, 4]);
 //numbersinput array = [3,4,2,12,40,2,4]
 //k = 3 output = [2,4,3,2,40,12,4]
 
+
+
+
+
+
+
+//Given an array of unique numbers and a given number, return the list of combinations from
+//the input that sum to the given number - you can use the same number multiple times to get
+//the given number
+
+//Go back to 1/7 recording at 1:01 to go over Kaleels answer to this problem again 
+
+
+function sumCombinations(uniqueNumberList, givenNumber) {
+
+    for(let i=0; i<uniqueNumberList.length; i++){
+
+    }
+}
+
+sumCombinations([1,2,4], 8)

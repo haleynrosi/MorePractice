@@ -10,9 +10,9 @@ const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
-app.get('/', ()=> {
-    resizeBy.send('home')
+app.get('/', (req, res)=> {
+    res.render('home')
 });
 
 const server = http.createServer(app);
-const db = require('./db');
+
