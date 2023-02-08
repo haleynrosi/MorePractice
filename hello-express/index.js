@@ -13,7 +13,13 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/friends', (req, res)=>{
-    res.send('this will be the short friends list')
+    // res.send('this will be the short friends list')
+    let htmlData = `<ul>`;
+    for(let friend of db){
+        htmlData += `<li>${friend.name}</li>`;
+    }
+    htmlData += `</ul>`;
+    res.send(htmlData);
 });
 
 server.listen(port, hostname, ()=>{

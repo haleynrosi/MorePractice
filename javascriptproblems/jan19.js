@@ -1,4 +1,4 @@
-//You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit
+//You are given a large integer represented as an array of the integer digits, where each digits[i] is the ith digit
 //the digits are ordered from most significant to least significant in left-to-right order
 //the large integer does not contain any leading 0s
 
@@ -11,15 +11,20 @@
 //input: digits = [9]
 //output: digits = [1,0]
 
-let wholeInteger = 0; 
-let arrayTwo = [];
+
+// let arrayOne = [];
 
 function plusOne(arrayOne){
-    wholeInteger = arrayOne.join('');
-    wholeInteger++;
-    let newInteger = wholeInteger.toString();
-    arrayTwo = newInteger.split('');
-    console.log(arrayTwo);
+
+let stringInteger = arrayOne.join(''); // join the numbers in the array into a string of one number and assign variable
+stringInteger++; //add 1 to that whole number variable
+let newInteger = stringInteger.toString(); //convert whole number back to string to split each number
+let arrayTwo = newInteger.split(''); //convert number string to an array of number strings
+let newArray = arrayTwo.map((x)=>{ 
+    return parseInt(x)
+})
+//map through the array of number strings and use parseInt to convert each individual index (x) to a number and assign it to a new array variable
+console.log(newArray) 
 }
 
 plusOne([9]);
@@ -41,11 +46,20 @@ plusOne([9]);
 //    output: false
 
 
-function stringBean(a,b) {
-    for(i in a){ 
+//first check if each string is equal in length - if they aren't the same length it is automatiocally false
+//now we check if each string has the same pattern of repeating, or non repeating characters
 
+function stringBean(a,b) {
+    const wordMap = new Map();
+    if(a.length != b.length){
+    console.log(false)
+    return false;
+    } else {
+     for(let i=0; i<=a.length-1; i++){
+      
     }
 
+}
 }
 
 stringBean("egg", "add"); 

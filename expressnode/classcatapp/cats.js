@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const templateEngine = require('express-es6-template-engine');
+const { json } = require('node:stream/consumers');
 const app = express();
 app.engine('html',templateEngine);
 app.set('views','templates');
@@ -17,8 +18,18 @@ const cats = [
     }
 ]
 
+// app.use((req, res, next)=> {
+//     if(req.method == 'POST' && req.header == json){
+//         res.send('its POST!')
+//     } else {
+//         res.sendStatus(400)
+//     }
+//     next();
+// })
+
 app.use((req,res,next)=>{
     console.log("Time now is ",Date.now());
+    console.log('This is the first line of defense. Its a middleware function.')
     next();
 })
 
@@ -29,13 +40,21 @@ app.use('/cats',(req,res,next)=>{
 
 
 app.get('/',(req,res)=>{
-    res.render('homepage');
+    res.render('homepage', {
+        partials: {
+            header: 'partials/header',
+            footer: 'partials/footer'
+        }
+    });
 })
 
 app.get('/cats',(req,res) =>{
     res.render('catlist',{
         locals:{
             cats
+        },
+        partials: {
+            header: 'partials/header'
         }
     });
 })
