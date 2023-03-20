@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+body{
+    background-color: #ac9eb8;
+}
+
+h1{
+    margin-top: 10%;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+}
+
+
+.goButton{
+    background-color: white;
+    border-color: white;
+    border-radius: 20px;
+    width: 15%;
+    margin: 30px;
+}
+
+.goButton:hover{
+    background-color: lavender;
+    border: lavender;
+}
+
+.goLink{
+    text-decoration: none;
+    color: black;
+}
+
+.buttonStack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    
+}
+
+.lyricButton{
+    background-color: aliceblue;
+    border-color: aliceblue;
+    color: black;
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+
+}
+
+.lyricButton:hover{
+    background-color: lavender;
+    border: lavender;
+}
+
+.factButton{
+    background-color: aliceblue;
+    border-color: aliceblue;
+    color: black;
+    margin: 40px;
+    width: 300px;
+    height: 400px;
+}
+
+.factButton:hover{
+    background-color: lavender;
+    border: lavender;
+}
