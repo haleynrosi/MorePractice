@@ -9,9 +9,9 @@ function TaySwiftHome(){
     return(
         <div className='tayHome'>
             <h1>Taylor Swift Trivia</h1>
-            <Button className='goButton'>
-                <Link to = '/trivia-home' className='goLink'> Go!</Link>
-            </Button>
+                <Link to = '/trivia-home' className='goLink'>
+                    <Button className='goButton'>Go!</Button> 
+                </Link>
         </div>
     )
 }
