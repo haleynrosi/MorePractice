@@ -82,7 +82,7 @@ function LyricTrivia({lyricData}){
         console.log(lyricData)
        }
     
-    }, [lyricData, lyrics])
+    }, [lyricData, countdown, lyrics])
 
     return(
         <div>
